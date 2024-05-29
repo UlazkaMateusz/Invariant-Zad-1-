@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 use std::fmt::Debug;
 use std::ops::{Add, Div, Mul, Neg, Sub};
 
@@ -13,8 +11,8 @@ pub struct Fixed(pub i128);
 impl Debug for Fixed {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("Fixed")
-            .field("value", &(self.0 as f64 / FIXED_ONE as f64))
-            .field("value_i128", &(self.0))
+            .field("value", &(self.0))
+            .field("value_as_f64", &(self.0 as f64 / FIXED_ONE as f64))
             .finish()
     }
 }
